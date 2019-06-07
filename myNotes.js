@@ -10,6 +10,8 @@ function main(){
             saveNote();
         }
     })
+
+    
 }
 
 function makeNoteForm(){
@@ -51,8 +53,23 @@ function showMyNotes(){
 function edit(elem){
     console.log("edit");
     const udpateForm = document.createElement("textarea");
+    udpateForm.setAttribute("id", "updateBtn");
     udpateForm.textContent = elem.textContent;
     document.querySelector(".container").appendChild(udpateForm);
+    
+    const updateform = document.getElementsByTagName("textarea")[1];
+    updateform.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13){
+            saveUpdateNote();
+        }
+    })
+}
+
+function saveUpdateNote(){
+    let noteContent = document.getElementsByTagName("textarea")[1].value;
+    let noteTitle = document.getElementById("title").value;
+    localStorage.setItem(noteTitle, noteContent);
+    document.getElementById("updateBtn").value = "";
 }
 
 function drawTable(){
