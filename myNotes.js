@@ -7,12 +7,10 @@ function main(){
   const form = document.getElementsByTagName("textarea")[0];
   form.addEventListener("keyup", function(event) {
         if (event.keyCode === 13){
-            saveNote;
+            saveNote();
         }
     })
 }
-
-
 
 function makeNoteForm(){
     const newForm = document.createElement("textarea");
@@ -25,15 +23,15 @@ function makeNoteForm(){
     newForm.setAttribute("id", "content")
    
 
-    let button = document.createElement("button");
-    button.addEventListener("click", saveNote);
-    button.textContent = "submit";
+    // let button = document.createElement("button");
+    // button.addEventListener("click", saveNote);
+    // button.textContent = "submit";
  
     document.querySelector(".container").appendChild(title);
     document.querySelector(".container").appendChild(breakPoint);
     document.querySelector(".container").appendChild(newForm);
     //document.querySelector(".container").appendChild(breakPoint);
-    document.querySelector(".container").appendChild(button);
+    //document.querySelector(".container").appendChild(button);
    // document.querySelector(".container").appendChild(breakPoint);
   
 }
@@ -50,8 +48,11 @@ function showMyNotes(){
     fillWithNotes();
 }
 
-function edti(){
-    console.log(edit);
+function edit(elem){
+    console.log("edit");
+    const udpateForm = document.createElement("textarea");
+    udpateForm.textContent = elem.textContent;
+    document.querySelector(".container").appendChild(udpateForm);
 }
 
 function drawTable(){
@@ -60,7 +61,8 @@ function drawTable(){
   
     for (let j = 0; j <= localStorage.length; j++) {
       let row = document.createElement("tr");
-      //row.addEventListener("click", edit)
+      row.addEventListener("click", function(){
+          edit(this)})
         
     //   for (let i = 0; i < 1; i++) {
     //     var cell = document.createElement("td");
@@ -92,7 +94,6 @@ function fillWithNotes(){
 
 function saveNote(){
     let noteContent = document.getElementsByTagName("textarea")[0].value;
-    console.log(noteContent);
     let noteTitle = document.getElementById("title").value;
     localStorage.setItem(noteTitle, noteContent);
     document.getElementById("title").value = "";
