@@ -1,12 +1,16 @@
 function main(){
   makeNoteForm();
   makeSeeListBtn();
-  //showMyNotes();
-
+  const seeListBtn = document.getElementById("seeListBtn");
+  seeListBtn.addEventListener("click", showMyNotes);
+  
+  const form = document.getElementsByTagName("textarea")[0];
+  form.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13){
+            saveNote;
+        }
+    })
 }
-
-
-
 
 
 
@@ -19,17 +23,7 @@ function makeNoteForm(){
     title.setAttribute("placeholder", "title");
     newForm.setAttribute("placeholder", "write something");
     newForm.setAttribute("id", "content")
-    // newForm.addEventListener("keyup", function(event) {
-    //     if (event.keyCode === 13) 
-    //         function save(){
-    //         let noteContent = document.getElementsByTagName("textarea")[0].value;
-    //         let noteTitle = document.getElementById("title").value;
-    //         localStorage.setItem(noteTitle, noteContent);
-    //         document.getElementById("title").value = "";
-    //         document.getElementById("content").value = "";
-    //       };
-    //     }
-    // )
+   
 
     let button = document.createElement("button");
     button.addEventListener("click", saveNote);
@@ -41,25 +35,19 @@ function makeNoteForm(){
     //document.querySelector(".container").appendChild(breakPoint);
     document.querySelector(".container").appendChild(button);
    // document.querySelector(".container").appendChild(breakPoint);
-   //makeSeeListBtn();
-    
+  
 }
 
 function makeSeeListBtn(){
     let seeListBtn = document.createElement("button");
+    seeListBtn.setAttribute("id", "seeListBtn");
     seeListBtn.textContent = "Show my notes";
     document.querySelector(".container").appendChild(seeListBtn);
-    seeListBtn.addEventListener("click", showMyNotes);
-
 }
 
 function showMyNotes(){
     drawTable();
     fillWithNotes();
-    // for (let i=0; i<localStorage.length; i++){
-    //     console.log(localStorage.key(i))
-    // }
-    //document.getElementById("result").innerHTML = localStorage.getItem("lastname");
 }
 
 function edti(){
@@ -104,6 +92,7 @@ function fillWithNotes(){
 
 function saveNote(){
     let noteContent = document.getElementsByTagName("textarea")[0].value;
+    console.log(noteContent);
     let noteTitle = document.getElementById("title").value;
     localStorage.setItem(noteTitle, noteContent);
     document.getElementById("title").value = "";
