@@ -1,4 +1,85 @@
-td, tr {
-    border: 2%;
-    border-color: blue;
+body{
+    background-color: #E1DADC;
+    color: white;
+    font-family: sans-serif;
+    font-size: 13px;
 }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+#updateTitle{
+    height: 10%;
+}
+
+.noteUpdForm{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.noteForm {
+    width: 30%; 
+}
+
+.tableSpace {
+    width: 30%;
+}
+
+.note {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+   
+}
+
+textarea{
+    width: 30%;
+    height: 150px;
+    background-color: #FFFFFF;
+    border-style: solid;
+    border-color: #B9B3B5;
+    border-top: transparent;
+    border-width: 3px;
+    font-size: 13px; 
+}
+
+input{
+    width: 30%;
+    height: 30px;
+    background-color: #B9B3B5;
+    border-color: #B9B3B5;
+    border-bottom-color: transparent;
+    border-width: 5px;
+    border-style: solid;
+    font-size: 13px;
+}
+
+button{
+    margin-top: 2%;
+    height: 30px;
+    background-color: #1D181E;
+    color: #FFFFFF;
+    
+}
+
+
+#seeListBtn{
+    width: 10%;
+}
+
+
+table {
+    width: 40%;
+
+}
+
+tr {
+    border: 2%;
+    color: black;
+}
+
