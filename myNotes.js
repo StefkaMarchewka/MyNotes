@@ -92,12 +92,18 @@ function edit(elem){
     udpateTitle.classList.add("title");
     udpateTitle.textContent = title.textContent;
 
+    const delButton = document.createElement("BUTTON");
+    delButton.setAttribute("id", "delButton");
+    delButton.innerHTML = "Delete"
+
     document.querySelector(".container").appendChild(noteUpdForm);
     document.querySelector(".noteUpdForm").appendChild(udpateTitle);
     document.querySelector(".noteUpdForm").appendChild(udpateContent);
+    document.querySelector(".noteUpdForm").appendChild(delButton);
     
     const updateContentForm = document.getElementsByTagName("textarea")[2];
     const updateTitleForm = document.getElementsByTagName("textarea")[1];
+    const deleteButton = document.getElementById("delButton");
 
     updateContentForm.addEventListener("keyup", function(event) {
         if (event.keyCode === 13){
@@ -108,9 +114,20 @@ function edit(elem){
     updateTitleForm.addEventListener("keyup", function(event) {
         if (event.keyCode === 13){
             saveUpdateNote();
-            
         }
     })
+
+    deleteButton.addEventListener("click", function(event) {
+        deleteNote();
+
+    })
+}
+
+function deleteNote(){
+    let noteTitle = document.getElementsByTagName("textarea")[1].value;
+
+    localStorage.removeItem(noteTitle);
+    document.location.reload(true);
 }
 
 

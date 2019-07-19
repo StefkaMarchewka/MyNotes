@@ -12,6 +12,8 @@ body{
     margin-left: 5%;
 }
 
+
+
 #updateTitle{
     height: 10%;
 }
@@ -64,7 +66,10 @@ button{
     height: 30px;
     background-color: #1D181E;
     color: #FFFFFF;
-    
+}
+
+#delButton{
+    width:10%;
 }
 
 
@@ -75,11 +80,13 @@ button{
 
 table {
     width: 40%;
+    
 
 }
 
 tr {
     border: 2%;
     color: black;
+    
 }
 
